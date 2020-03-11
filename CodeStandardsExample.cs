@@ -33,7 +33,7 @@ public class #SCRIPTNAME# : MonoBehaviour
         Count,
         None = -1
     }
-	
+
 	public struct DataHolder
 	{
 		public int Counter;
@@ -41,32 +41,32 @@ public class #SCRIPTNAME# : MonoBehaviour
 	}
 
 	// -- PROPERTIES
-	
-	
+
+
     public string MyAttribute { get; set; }
 
-    public int Var 
+    public int Var
     {
-        get 
-        { 
-            return var; 
-        } 
-        private set 
-        { 
+        get
+        {
+            return var;
+        }
+        private set
+        {
             if ( var != value )
             {
                 var = value;
             }
-        } 
+        }
     }
-	
+
 	// -- FIELDS
 
 
     public string TestThing;
-	
+
 	protected VeryCoolClass VeryCoolField;
-	
+
 	[SerializeField] private UnityAction myFirstAction;
     private string value1;
     private string values2;
@@ -81,13 +81,13 @@ public class #SCRIPTNAME# : MonoBehaviour
     private List<string> stringTable = new List<string>();
 
     private SkeletalMesh skeletalMeshComponent;
-	
+
     // When using link, it means the component does not come from your gameobject.
     private Transform transformComponentLink;
 
     // :( Prefer using components or interfaces over GameObject
     private GameObject myTemplatePrefab;
-	
+
 	// -- METHODS
 
 
@@ -100,12 +100,12 @@ public class #SCRIPTNAME# : MonoBehaviour
     {
         return name;
     }
-    
+
     public bool MyFunctionWithoutArguments()
     {
         return true;
     }
-    
+
     public void MyFunctionWithArguments( string sample1, float sample2 )
     {
     }
@@ -124,7 +124,7 @@ public class #SCRIPTNAME# : MonoBehaviour
         Object var3;
 
         var name_map = new Dictionary< string, List<XXX> );
-    }  
+    }
 
     private string GetNameInternal()
     {
@@ -136,12 +136,12 @@ public class #SCRIPTNAME# : MonoBehaviour
     {
 
     }
-	
+
 	private void GameManager_OnEventHappened()
 	{
-		
+
 	}
-	
+
 	// Try to early out ASAP to reduce nesting and to preserve the readability
 	private void DoSomething( bool should_continue, bool should_still_continue )
 	{
@@ -149,20 +149,20 @@ public class #SCRIPTNAME# : MonoBehaviour
 		{
 			return;
 		}
-		
+
 		if(!should_still_continue)
 		{
 			return;
 		}
 	}
-	
+
 	// Avoid bool arguments when it's not obvious
 	private void DoSomethingToo()
 	{
 		// Example of obvious meaning of the bool
 		transformComponentLink.gameobject.SetActive( true );
 		// Add the name of the parameter if it's not obvious but needed
-		DoSomething( should_continue: true, should_still_continue: true ); 
+		DoSomething( should_continue: true, should_still_continue: true );
 	}
 
 	// -- UNITY
@@ -173,13 +173,13 @@ public class #SCRIPTNAME# : MonoBehaviour
     {
 		GameManager.Instance.EventHappened += GameManager_OnEventHappened;
     }
-	
+
 	private void OnDestroy()
 	{
 		// Balance your event subscriptions
 		GameManager.Instance.EventHappened -= GameManager_OnEventHappened;
 	}
-    
+
     protected void Start()
     {
     }
