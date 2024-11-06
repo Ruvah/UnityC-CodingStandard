@@ -23,7 +23,7 @@ public class #SCRIPTNAME# : MonoBehaviour
     , IEnumerable
 {
 
-	// -- TYPES
+    // -- TYPES
 
 
     public enum MyEnumName
@@ -34,13 +34,13 @@ public class #SCRIPTNAME# : MonoBehaviour
         None = -1
     }
 
-	public struct DataHolder
-	{
-		public int Counter;
-		public string Name;
-	}
+    public struct DataHolder
+    {
+	public int Counter;
+	public string Name;
+    }
 
-	// -- PROPERTIES
+    // -- PROPERTIES
 
 
     public string MyAttribute { get; set; }
@@ -60,22 +60,21 @@ public class #SCRIPTNAME# : MonoBehaviour
         }
     }
 
-	// -- FIELDS
+    // -- FIELDS
 
 
     public string TestThing;
+    protected VeryCoolClass VeryCoolField;
 
-	protected VeryCoolClass VeryCoolField;
-
-	[SerializeField] private UnityAction myFirstAction;
+    [SerializeField] private UnityAction myFirstAction;
     private string value1;
     private string values2;
 
-	// Write your script as if there is no Editor, use SerializeField instead of public where you can.
+    // Write your script as if there is no Editor, use SerializeField instead of public where you can.
     [SerializeField] private string value1;
     [SerializeField] private string value2;
 
-	// Avoid abbreviations in variables to avoid confusion
+    // Avoid abbreviations in variables to avoid confusion
     private int var;
 
     private List<string> stringTable = new List<string>();
@@ -88,7 +87,7 @@ public class #SCRIPTNAME# : MonoBehaviour
     // :( Prefer using components or interfaces over GameObject
     private GameObject myTemplatePrefab;
 
-	// -- METHODS
+     // -- METHODS
 
 
     public #SCRIPTNAME#()
@@ -137,48 +136,48 @@ public class #SCRIPTNAME# : MonoBehaviour
 
     }
 
-	private void GameManager_OnEventHappened()
-	{
-
-	}
-
-	// Try to early out ASAP to reduce nesting and to preserve the readability
-	private void DoSomething( bool should_continue, bool should_still_continue )
-	{
-		if(!should_continue)
-		{
-			return;
-		}
-
-		if(!should_still_continue)
-		{
-			return;
-		}
-	}
-
-	// Avoid bool arguments when it's not obvious
-	private void DoSomethingToo()
-	{
-		// Example of obvious meaning of the bool
-		transformComponentLink.gameobject.SetActive( true );
-		// Add the name of the parameter if it's not obvious but needed
-		DoSomething( should_continue: true, should_still_continue: true );
-	}
-
-	// -- UNITY
-
-
-	// Use Awake instead of the constructor for initialization https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
-    public void Awake()
+    private void GameManager_OnEventHappened()
     {
-		GameManager.Instance.EventHappened += GameManager_OnEventHappened;
+
     }
 
-	private void OnDestroy()
+	// Try to early out ASAP to reduce nesting and to preserve the readability
+    private void DoSomething( bool should_continue, bool should_still_continue )
+    {
+	if(!should_continue)
 	{
-		// Balance your event subscriptions
-		GameManager.Instance.EventHappened -= GameManager_OnEventHappened;
+		return;
 	}
+
+	if(!should_still_continue)
+	{
+		return;
+	}
+    }
+
+    // Avoid bool arguments when it's not obvious
+    private void DoSomethingToo()
+    {
+	// Example of obvious meaning of the bool
+	transformComponentLink.gameobject.SetActive( true );
+	// Add the name of the parameter if it's not obvious but needed
+	DoSomething( should_continue: true, should_still_continue: true );
+    }
+
+    // -- UNITY
+
+
+    // Use Awake instead of the constructor for initialization https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
+    public void Awake()
+    {
+	GameManager.Instance.EventHappened += GameManager_OnEventHappened;
+    }
+
+    private void OnDestroy()
+    {
+	// Balance your event subscriptions
+	GameManager.Instance.EventHappened -= GameManager_OnEventHappened;
+    }
 
     protected void Start()
     {
